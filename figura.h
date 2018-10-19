@@ -2,25 +2,63 @@
 #define figura_h
 #include <iostream>
 #include <string>
-#include <fstream>
 #include "lista.h"
 #include "nodo.h"
 
 class Figura{
-private:
-    char tipo;
+protected:
     double perimetro;
     double superficie;
     
 public:
-    // Contructor
+    Figura(double p, double s);
     Figura();
-    
-    // Destructor
-    
     virtual void mostrar();
     virtual void calcularSuperficie();
     virtual void calcularPerimetro();
+    
+};
+
+class Rectangulo : public Figura{
+    
+private:
+    double base;
+    double altura;
+
+public:
+    Rectangulo(double b, double a);
+    void mostrar();
+    void calcularSuperficie();
+    void calcularPerimetro();
+    
+    
+};
+
+class Cuadrado : public Figura{
+    
+private:
+    double lado;
+
+public:
+    Cuadrado(double l);
+    void mostrar();
+    void calcularSuperficie();
+    void calcularPerimetro();
+    
+    
+};
+
+class Circulo : public Figura{
+    
+private:
+    double radio;
+
+public:
+    Circulo(double r);
+    void mostrar();
+    void calcularSuperficie();
+    void calcularPerimetro();
+    
     
 };
 
