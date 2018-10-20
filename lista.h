@@ -1,55 +1,56 @@
-#ifndef LISTA_H_INCLUDED
-#define LISTA_H_INCLUDED
+#ifndef LISTA_H_
+#define LISTA_H_
 #include "nodo.h"
 
-class Lista
-{
-private:
-    // Primer elemento de la lista
-    Nodo* primero;
-    // Nodo* ultimo; Lo agrego para listas doblemente enlazadas
-    // Tamaño de la lista
-    unsigned longitud;
+typedef int Tipo;
+
+class Lista{
     
-    Nodo* obtener_nodo(unsigned pos);
+private:
+    Nodo* primero;
+    Tipo longitud;
     
 public:
-    // Constructor
-    // PRE:  ninguna
-    // POST: construye una lista vacia
-    //       - primero apunta a nulo
-    //       - tam = 0
+    //constructor sin parametros
+    //PRE:-
+    //POST:crea una lista vacia
     Lista();
     
-    // Destructor
-    // PRE:  lista creada
-    // POST: Libera todos los recursos de la lista
-    ~Lista();
+    //agregar elementos a la lista
+    //PRE: c, elemento valido y capacidad<MAX
+    //POST: agrega c en la cima
+    void insertar(Tipo e , unsigned pos);
     
-    // La lista es vacía?
-    // PRE:  lista creada
-    // POST: devuelve verdadero si la lista es vacia
-    //       falso de lo contrario
-    bool lista_vacia();
+    void insertar(Tipo e);
     
-    // Agregar un elemento a la lista
-    // PRE:  lista creada
-    // POST: agrega un dato (dentro de un nodo) al final
-    //       incrementa tam en 1
-    void insertar(Tipo d, unsigned pos);
+    //sacar elementos de la lista
+    //PRE: !pila.vacia (pila no vacia)
+    //POST:quita elemento de la cima y lo devuelve
+    void borrar (unsigned pos);
     
-    // Borrado del nodo que está en la posición pos
-    // PRE: - lista creada y no vacia
-    // -0<pos<=tam
-    // POST: libera el nodo que esta en la posición pos // se toma 1 como el primero
-    void borrar(unsigned pos);
+    // pila vacia
+    //PRE:-
+    //POST:true si la pila esta vacia, false si no.
+    bool listaVacia();
     
+    
+    //consulta en la lista
+    //PRE:
+    //POST:
     Tipo consultar(unsigned pos);
     
-    bool estaIncluida(Lista* lista);
     
-    unsigned get_tam();
+    //destructor
+    //PRE: -
+    //POST:libera la memoria pedida para crear la pila
+    ~Lista();
+    
+private:
+    Nodo* obtenerNodo(unsigned pos);
+    
 };
 
-#endif // LISTA_H_INCLUDED
+
+
+#endif /* LISTA_H_ */
 

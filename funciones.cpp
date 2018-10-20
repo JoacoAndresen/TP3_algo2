@@ -24,3 +24,19 @@ int menu(){
     
     return opcion;
 }
+
+std::string leerLinea(std::ifstream &archivo){
+    std::string linea;
+    getline(archivo, linea);
+    return linea;
+}
+
+int longitudArchivo(std::ifstream &archivo){
+    std::string linea;
+    int longitud = 0;
+    while (getline(archivo, linea)) {
+        longitud++;
+    }
+    archivo.close();
+    return longitud;
+}

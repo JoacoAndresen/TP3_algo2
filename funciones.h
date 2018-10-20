@@ -8,6 +8,8 @@
 // Funciones auxiliares
 
 int menu();
+std::string leerLinea(std::ifstream &archivo);
+int longitudArchivo(std::ifstream &archivo);
 
 
 #endif /* funciones_h */

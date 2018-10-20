@@ -1,90 +1,72 @@
 #include "lista.h"
+#include <iostream>
+
+//constructor
 Lista::Lista(){
-    primero = 0;
-    longitud = 0;
-    
+    primero=0;
+    longitud=0;
 }
 
+//destructor
 Lista::~Lista(){
-    while (longitud > 0)
+    while (longitud>0)
         borrar(1);
 }
 
-bool Lista::lista_vacia(){
-    return (primero == 0);
-}
-
-void Lista::insertar(Tipo d, unsigned pos){
-    Nodo* nuevo = new Nodo(d);
-    if (pos == 1){
-        nuevo -> set_siguiente(primero);
+void Lista::insertar(Tipo e , unsigned pos){
+    
+    Nodo* nuevo = new Nodo(e);
+    if (pos==1){
+        nuevo->asignarSiguiente(primero);
         primero = nuevo;
     }
-    else {
-        Nodo* anterior = obtener_nodo(pos - 1);
-        nuevo -> set_siguiente(anterior -> obtenerSiguiente());
-        anterior -> set_siguiente(nuevo);
+    else{
+        Nodo* anterior = obtenerNodo(pos - 1);
+        nuevo -> asignarSiguiente(anterior -> obtenerSiguiente());
+        anterior -> asignarSiguiente(nuevo);
     }
     longitud++;
 }
 
-Nodo* Lista::obtener_nodo(unsigned pos){
-    Nodo* aux = primero;
-    for (unsigned i = 1; i < pos; i++) {
-        aux = aux -> obtenerSiguiente();
-    }
-    return aux;
+void Lista::insertar(Tipo e) {
+    insertar(e,longitud);
+    this->longitud++;
 }
 
-Tipo Lista::consultar(unsigned pos){
-    Nodo* aux = obtener_nodo(pos);
-    return aux -> obtenerDato();
+bool Lista::listaVacia(){
+    
+    return (longitud==0);
 }
 
-void Lista::borrar(unsigned pos){
-    Nodo* borrar = primero;
-    if (pos == 1)
-    {
-        primero = borrar->obtenerSiguiente();
+void Lista::borrar (unsigned pos){
+    
+    Nodo* borrar=primero;
+    if(pos==1){
+        primero=borrar->obtenerSiguiente();
     }
-    else {
-        Nodo* anterior = obtener_nodo(pos - 1);
-        borrar = anterior -> obtenerSiguiente();
-        anterior -> set_siguiente(borrar -> obtenerSiguiente());
+    else{
+        Nodo* anterior=obtenerNodo(pos-1);
+        borrar=anterior->obtenerSiguiente();
+        anterior->asignarSiguiente(borrar->obtenerSiguiente());
     }
     delete borrar;
     longitud--;
 }
 
-unsigned Lista::get_tam(){
-    return longitud;
+Tipo Lista::consultar(unsigned pos){
+    
+    Nodo* aux=obtenerNodo(pos);
+    return aux->obtenerDato();
+    
 }
 
+//Metodo privado obtener Nodo
 
-/*
- bool Lista::estaIncluida(Lista* lista){
- Nodo* ptr_aux = this -> primero;
- bool esta_incluida = false;
- 
- if (this -> lista_vacia() || (this -> get_tam() < lista -> get_tam())) {
- return false;
- }
- 
- unsigned int i = 1;
- unsigned int tamanio_incluida = lista -> get_tam();
- while (i <= this -> get_tam() && this -> obtenerDato(i) != 0 && tamanio_incluida) {
- if (ptr_aux -> obtenerDato() == lista -> ob) {
- esta_incluida = true;
- tamanio_incluida--;
- }
- else{
- tamanio_incluida = lista -> get_tam();
- }
- ptr_aux = ptr_aux -> obtenerSiguiente();
- i++;
- }
- return esta_incluida;
- }
- 
- */
+Nodo* Lista::obtenerNodo(unsigned pos){
+    Nodo* aux=primero;
+    for(unsigned i=1; i < pos; i++){
+        aux = aux -> obtenerSiguiente();
+    }
+    return aux;
+}
 
