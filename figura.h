@@ -5,6 +5,7 @@
 #include "lista.h"
 #include "nodo.h"
 
+
 class Figura{
 protected:
     double perimetro;

@@ -3,11 +3,17 @@
 
 int main() {
     
-    Cuadrado cu(5.3);
-    Rectangulo re(4.1 , 8);
-    Circulo ci(3.2);
+    std::ifstream archivo;
+    archivo.open("/Users/joaquinandresen/Desktop/Programación/Algoritmos y Programación II/TP3/TP3/figuras.txt");
     
-    while (menu() != 9);
+    int longitud;
+    longitud = longitudArchivo(archivo);
+    
+    for (int i = 0; i < longitud; i++) {
+        crearFigura(archivo);
+    }
+    
+    archivo.close();
     
     return 0;
 }

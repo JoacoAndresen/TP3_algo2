@@ -25,18 +25,40 @@ int menu(){
     return opcion;
 }
 
-std::string leerLinea(std::ifstream &archivo){
-    std::string linea;
-    getline(archivo, linea);
-    return linea;
+std::string leerDato(std::ifstream &archivo){
+    std::string dato;
+    archivo >> dato;
+    return dato;
 }
 
 int longitudArchivo(std::ifstream &archivo){
     std::string linea;
     int longitud = 0;
-    while (getline(archivo, linea)) {
+    while (!archivo.eof()) {
+        getline(archivo, linea);
         longitud++;
     }
-    archivo.close();
+    archivo.clear();
+    archivo.seekg(0);
     return longitud;
+}
+
+void crearFigura(std::ifstream &archivo){
+    std::string dato1;
+    double dato2;
+    double dato3;
+    dato1 = leerDato(archivo);
+    if (dato1 == "B") {
+        dato2 = std::stod(leerDato(archivo));
+        dato3 = std::stod(leerDato(archivo));
+        Rectangulo re(dato2, dato3);
+    }
+    else if (dato1 == "A"){
+        dato2 = std::stod(leerDato(archivo));
+        Cuadrado cu(dato2);
+    }
+    else if (dato1 == "C"){
+        dato2 = std::stod(leerDato(archivo));
+        Circulo cir(dato2);
+    }
 }

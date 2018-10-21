@@ -8,7 +8,7 @@ class Lista{
     
 private:
     Nodo* primero;
-    Tipo longitud;
+    int longitud;
     
 public:
     //constructor sin parametros

@@ -4,12 +4,14 @@
 #include <string>
 #include <fstream>
 #include <typeinfo>
+#include "figura.h"
 
 // Funciones auxiliares
 
 int menu();
-std::string leerLinea(std::ifstream &archivo);
+std::string leerDato(std::ifstream &archivo);
 int longitudArchivo(std::ifstream &archivo);
+void crearFigura(std::ifstream &archivo);
 
 
 #endif /* funciones_h */
