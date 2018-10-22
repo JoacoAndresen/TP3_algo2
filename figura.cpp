@@ -13,18 +13,20 @@ Figura::Figura(){
 void Figura::mostrar(){
 }
 
-void Figura::calcularPerimetro(){
+double Figura::calcularPerimetro(){
+    return perimetro;
 }
 
-void Figura::calcularSuperficie(){
+double Figura::calcularSuperficie(){
+    return superficie;
 }
 
 Rectangulo::Rectangulo(double b, double a){
     base = b;
     altura = a;
+    superficie = base * altura;
+    perimetro = (base * 2) + (altura * 2);
     std::cout << "Se contruye un rectangulo" << std::endl;
-    calcularPerimetro();
-    calcularSuperficie();
 }
 
 void Rectangulo::mostrar(){
@@ -33,19 +35,19 @@ void Rectangulo::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-void Rectangulo::calcularSuperficie(){
-    superficie = base * altura;
+double Rectangulo::calcularSuperficie(){
+    return superficie;
 }
 
-void Rectangulo::calcularPerimetro(){
-    perimetro = (base * 2) + (altura * 2);
+double Rectangulo::calcularPerimetro(){
+    return perimetro;
 }
 
 Cuadrado::Cuadrado(double l){
     lado = l;
+    superficie = lado * lado;
+    perimetro = lado * 4;
     std::cout << "Se contruye un cuadrado" << std::endl;
-    calcularSuperficie();
-    calcularPerimetro();
 }
 
 void Cuadrado::mostrar(){
@@ -54,19 +56,19 @@ void Cuadrado::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-void Cuadrado::calcularSuperficie(){
-    superficie = lado * lado;
+double Cuadrado::calcularSuperficie(){
+    return superficie;
 }
 
-void Cuadrado::calcularPerimetro(){
-    perimetro = lado * 4;
+double Cuadrado::calcularPerimetro(){
+    return perimetro;
 }
 
 Circulo::Circulo(double r){
     radio = r;
+    superficie = 3.14 * (radio * radio);
+    perimetro = 2 * 3.14 * radio;
     std::cout << "Se contruye un circulo" << std::endl;
-    calcularSuperficie();
-    calcularPerimetro();
 }
 
 void Circulo::mostrar(){
@@ -75,10 +77,10 @@ void Circulo::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-void Circulo::calcularSuperficie(){
-    superficie = 3.14 * (radio * radio);
+double Circulo::calcularSuperficie(){
+    return superficie;
 }
 
-void Circulo::calcularPerimetro(){
-    perimetro = 2 * 3.14 * radio;
+double Circulo::calcularPerimetro(){
+    return perimetro;
 }

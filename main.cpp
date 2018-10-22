@@ -26,6 +26,10 @@ int main() {
         std::string tipo;
         double dato1 = 0;
         double dato2 = 0;
+        double superficie_max = 0;
+        double superficie_min = 999999999;
+        double perimetro_max = 0;
+        double perimetro_min = 999999999;
         if (respuesta == 1) { // Consultar que objeto hay en det pos
             std::cout << "Ingresar posicion: ";
             std::cin >> pos;
@@ -67,22 +71,46 @@ int main() {
             longitud++;
         }
         else if (respuesta == 4){ // Listar objetos
-            for (int i = 1; i < longitud; i++) {
+            for (int i = 1; i <= longitud; i++) {
                 std::cout << std::endl;
                 (figuras.consultar(i)) -> mostrar();
             }
         }
         else if (respuesta == 5){ // Superficie Maxima
-            
+            for (int i = 1; i < longitud; i++) {
+                std::cout << std::endl;
+                if (((figuras.consultar(i)) -> calcularSuperficie()) > superficie_max) {
+                    superficie_max = (figuras.consultar(i)) -> calcularSuperficie();
+                }
+            }
+            std::cout << "La superficie maxima es: " << superficie_max << std::endl;
         }
         else if (respuesta == 6){ // Superficie Minima
-            
+            for (int i = 1; i < longitud; i++) {
+                std::cout << std::endl;
+                if (((figuras.consultar(i)) -> calcularSuperficie()) < superficie_min) {
+                    superficie_min = (figuras.consultar(i)) -> calcularSuperficie();
+                }
+            }
+            std::cout << "La superficie minima es: " << superficie_min << std::endl;
         }
         else if (respuesta == 7){ // Perimetro maximo
-            
+            for (int i = 1; i < longitud; i++) {
+                std::cout << std::endl;
+                if (((figuras.consultar(i)) -> calcularPerimetro()) > perimetro_max) {
+                    perimetro_max = (figuras.consultar(i)) -> calcularPerimetro();
+                }
+            }
+            std::cout << "El perimetro maximo es: " << perimetro_max << std::endl;
         }
         else if (respuesta == 8){ // Perimetro minimo
-            
+            for (int i = 1; i < longitud; i++) {
+                std::cout << std::endl;
+                if (((figuras.consultar(i)) -> calcularPerimetro()) < perimetro_min) {
+                    perimetro_min = (figuras.consultar(i)) -> calcularPerimetro();
+                }
+            }
+            std::cout << "El perimetro minimo es: " << perimetro_min << std::endl;
         }
         else if (respuesta == 9){ // Finalizar aplicacion
             std::cout << "SESION FINALIZADA.";
