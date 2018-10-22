@@ -2,8 +2,6 @@
 #define figura_h
 #include <iostream>
 #include <string>
-#include "lista.h"
-#include "nodo.h"
 
 
 class Figura{

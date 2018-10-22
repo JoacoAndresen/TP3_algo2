@@ -1,7 +1,8 @@
 #ifndef NODO_H_
 #define NODO_H_
+#include "figura.h"
 
-typedef int Tipo;
+typedef Figura* Tipo;
 
 class Nodo{
     

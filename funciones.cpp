@@ -43,7 +43,7 @@ int longitudArchivo(std::ifstream &archivo){
     return longitud;
 }
 
-void crearFigura(std::ifstream &archivo){
+Figura* crearFigura(std::ifstream &archivo){
     std::string dato1;
     double dato2;
     double dato3;
@@ -51,14 +51,19 @@ void crearFigura(std::ifstream &archivo){
     if (dato1 == "B") {
         dato2 = std::stod(leerDato(archivo));
         dato3 = std::stod(leerDato(archivo));
-        Rectangulo re(dato2, dato3);
+        Rectangulo* re = new Rectangulo(dato2, dato3);
+        return re; // Aca esta el otro problema, no me deja devolver esto
     }
     else if (dato1 == "A"){
         dato2 = std::stod(leerDato(archivo));
-        Cuadrado cu(dato2);
+        Cuadrado* cu = new Cuadrado(dato2);
+        return cu;
     }
     else if (dato1 == "C"){
         dato2 = std::stod(leerDato(archivo));
-        Circulo cir(dato2);
+        Circulo* cir = new Circulo(dato2);
+        return cir;
     }
+    std::cout << "Se construye una figura" << std::endl;
+    return new Figura();
 }

@@ -9,7 +9,6 @@ Nodo::Nodo (Tipo d){
 }
 
 Nodo::~Nodo(){
-    std::cout << "Se destruye el nodo " << this << std::endl;
 }
 
 //obtener

@@ -2,8 +2,6 @@
 #define LISTA_H_
 #include "nodo.h"
 
-typedef int Tipo;
-
 class Lista{
     
 private:

@@ -11,7 +11,7 @@
 int menu();
 std::string leerDato(std::ifstream &archivo);
 int longitudArchivo(std::ifstream &archivo);
-void crearFigura(std::ifstream &archivo);
+Figura* crearFigura(std::ifstream &archivo);
 
 
 #endif /* funciones_h */
