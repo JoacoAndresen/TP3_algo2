@@ -23,12 +23,12 @@ Rectangulo::Rectangulo(double b, double a){
     base = b;
     altura = a;
     std::cout << "Se contruye un rectangulo" << std::endl;
+    calcularPerimetro();
+    calcularSuperficie();
 }
 
 void Rectangulo::mostrar(){
     std::cout << "Rectangulo" << std::endl;
-    std::cout << "Base = " << base << std::endl;
-    std::cout << "Altura = " << altura << std::endl;
     std::cout << "Superficie = " << superficie << std::endl;
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
@@ -44,11 +44,12 @@ void Rectangulo::calcularPerimetro(){
 Cuadrado::Cuadrado(double l){
     lado = l;
     std::cout << "Se contruye un cuadrado" << std::endl;
+    calcularSuperficie();
+    calcularPerimetro();
 }
 
 void Cuadrado::mostrar(){
     std::cout << "Cuadrado" << std::endl;
-    std::cout << "Longitud de lado = " << lado << std::endl;
     std::cout << "Superficie = " << superficie << std::endl;
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
@@ -64,11 +65,12 @@ void Cuadrado::calcularPerimetro(){
 Circulo::Circulo(double r){
     radio = r;
     std::cout << "Se contruye un circulo" << std::endl;
+    calcularSuperficie();
+    calcularPerimetro();
 }
 
 void Circulo::mostrar(){
     std::cout << "Circulo" << std::endl;
-    std::cout << "Radio = " << radio << std::endl;
     std::cout << "Superficie = " << superficie << std::endl;
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
