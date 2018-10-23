@@ -10,7 +10,9 @@ int main() {
     archivo.open("/Users/joaquinandresen/Desktop/Programación/Algoritmos y Programación II/TP3/TP3/figuras.txt");
     
     int longitud;
+    
     longitud = longitudArchivo(archivo) - 1;
+    
     
     for (int i = 1; i <= longitud ; i++) {
         figuras.insertar(crearFigura(archivo), i);
@@ -47,7 +49,6 @@ int main() {
         else if (respuesta == 3){ // Agregar objeto
             std::cout << "Ingrese el objeto que desea agregar : ";
             std::cin >> tipo;
-            
             if (tipo == "A") {
                 std::cout << "Ingrese la longitud de los lados del cuadrado: ";
                 std::cin >> dato1;
@@ -66,9 +67,8 @@ int main() {
                 std::cout << "Ingrese la longitud de la altura del rectangulo: ";
                 std::cin >> dato2;
                 Rectangulo* r1 = new Rectangulo(dato1, dato2);
-                figuras.insertar(r1, longitud + 1);
+                figuras.insertar(r1, ++longitud);
             }
-            longitud++;
         }
         else if (respuesta == 4){ // Listar objetos
             for (int i = 1; i <= longitud; i++) {
@@ -77,7 +77,7 @@ int main() {
             }
         }
         else if (respuesta == 5){ // Superficie Maxima
-            for (int i = 1; i < longitud; i++) {
+            for (int i = 1; i <= longitud; i++) {
                 std::cout << std::endl;
                 if (((figuras.consultar(i)) -> calcularSuperficie()) > superficie_max) {
                     superficie_max = (figuras.consultar(i)) -> calcularSuperficie();
@@ -86,7 +86,7 @@ int main() {
             std::cout << "La superficie maxima es: " << superficie_max << std::endl;
         }
         else if (respuesta == 6){ // Superficie Minima
-            for (int i = 1; i < longitud; i++) {
+            for (int i = 1; i <= longitud; i++) {
                 std::cout << std::endl;
                 if (((figuras.consultar(i)) -> calcularSuperficie()) < superficie_min) {
                     superficie_min = (figuras.consultar(i)) -> calcularSuperficie();
@@ -95,7 +95,7 @@ int main() {
             std::cout << "La superficie minima es: " << superficie_min << std::endl;
         }
         else if (respuesta == 7){ // Perimetro maximo
-            for (int i = 1; i < longitud; i++) {
+            for (int i = 1; i <= longitud; i++) {
                 std::cout << std::endl;
                 if (((figuras.consultar(i)) -> calcularPerimetro()) > perimetro_max) {
                     perimetro_max = (figuras.consultar(i)) -> calcularPerimetro();
@@ -104,7 +104,7 @@ int main() {
             std::cout << "El perimetro maximo es: " << perimetro_max << std::endl;
         }
         else if (respuesta == 8){ // Perimetro minimo
-            for (int i = 1; i < longitud; i++) {
+            for (int i = 1; i <= longitud; i++) {
                 std::cout << std::endl;
                 if (((figuras.consultar(i)) -> calcularPerimetro()) < perimetro_min) {
                     perimetro_min = (figuras.consultar(i)) -> calcularPerimetro();
@@ -118,7 +118,9 @@ int main() {
         std::cout << "\n" << "\n" << std::endl;
     }
     
-    
+    for (int i = 1; i <= longitud ; i++) {
+        figuras.borrar(1);
+    }
     
     return 0;
 }
