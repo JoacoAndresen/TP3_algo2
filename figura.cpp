@@ -13,11 +13,11 @@ Figura::Figura(){
 void Figura::mostrar(){
 }
 
-double Figura::calcularPerimetro(){
+double Figura::mostrarPerimetro(){
     return perimetro;
 }
 
-double Figura::calcularSuperficie(){
+double Figura::mostrarSuperficie(){
     return superficie;
 }
 
@@ -35,11 +35,11 @@ void Rectangulo::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-double Rectangulo::calcularSuperficie(){
+double Rectangulo::mostrarSuperficie(){
     return superficie;
 }
 
-double Rectangulo::calcularPerimetro(){
+double Rectangulo::mostrarPerimetro(){
     return perimetro;
 }
 
@@ -56,11 +56,11 @@ void Cuadrado::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-double Cuadrado::calcularSuperficie(){
+double Cuadrado::mostrarSuperficie(){
     return superficie;
 }
 
-double Cuadrado::calcularPerimetro(){
+double Cuadrado::mostrarPerimetro(){
     return perimetro;
 }
 
@@ -77,10 +77,10 @@ void Circulo::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-double Circulo::calcularSuperficie(){
+double Circulo::mostrarSuperficie(){
     return superficie;
 }
 
-double Circulo::calcularPerimetro(){
+double Circulo::mostrarPerimetro(){
     return perimetro;
 }

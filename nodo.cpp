@@ -9,6 +9,7 @@ Nodo::Nodo (Tipo d){
 }
 
 Nodo::~Nodo(){
+    delete dato;
 }
 
 //obtener

@@ -67,3 +67,112 @@ Figura* crearFigura(std::ifstream &archivo){
     std::cout << "Se construye una figura" << std::endl;
     return new Figura();
 }
+
+void continuar(){
+    std::string entrada;
+    std::cout << std::endl;
+    std::cout << "Presione ENTER para continuar";
+    std::cin >> entrada;
+    
+    // std::cin.ignore();
+}
+
+void opcion1(Lista &figuras){
+    int pos = 0;
+    std::cout << "Ingresar posicion: ";
+    std::cin >> pos;
+    std::cout << "\n" << std::endl;
+    (figuras.consultar(pos)) -> mostrar();
+}
+
+void opcion2(Lista &figuras, int longitud){
+    int pos = 0;
+    std::cout << "Ingresar posicion: ";
+    std::cin >> pos;
+    figuras.borrar(pos);
+    std::cout << std::endl;
+    std::cout << "Se ha borrado la figura en la posicion " << pos << "." << std::endl;
+}
+
+void opcion3(Lista &figuras, int longitud){
+    std::string tipo;
+    double dato1 = 0;
+    double dato2 = 0;
+    std::cout << "Ingrese el objeto que desea agregar : ";
+    std::cin >> tipo;
+    if (tipo == "A") {
+        std::cout << "Ingrese la longitud de los lados del cuadrado: ";
+        std::cin >> dato1;
+        Cuadrado* c1 = new Cuadrado(dato1);
+        figuras.insertar(c1, longitud + 1);
+    }
+    else if (tipo == "C") {
+        std::cout << "Ingrese la longitud del radio del circulo: ";
+        std::cin >> dato1;
+        Circulo* c2 = new Circulo(dato1);
+        figuras.insertar(c2, longitud + 1);
+    }
+    else if (tipo == "B") {
+        std::cout << "Ingrese la longitud de la base del rectangulo: ";
+        std::cin >> dato1;
+        std::cout << "Ingrese la longitud de la altura del rectangulo: ";
+        std::cin >> dato2;
+        Rectangulo* r1 = new Rectangulo(dato1, dato2);
+        figuras.insertar(r1, longitud + 1);
+    }
+}
+
+void opcion4(Lista &figuras, int longitud){
+    for (int i = 1; i <= longitud; i++) {
+        std::cout << std::endl;
+        (figuras.consultar(i)) -> mostrar();
+    }
+}
+
+void opcion5(Lista &figuras, int longitud){
+    double superficie_max = 0;
+    for (int i = 1; i <= longitud; i++) {
+        std::cout << std::endl;
+        if (((figuras.consultar(i)) -> mostrarSuperficie()) > superficie_max) {
+            superficie_max = (figuras.consultar(i)) -> mostrarSuperficie();
+        }
+    }
+    std::cout << "La superficie maxima es: " << superficie_max << std::endl;
+}
+
+void opcion6(Lista &figuras, int longitud){
+    double superficie_min = 9999999999;
+    for (int i = 1; i <= longitud; i++) {
+        std::cout << std::endl;
+        if (((figuras.consultar(i)) -> mostrarSuperficie()) < superficie_min) {
+            superficie_min = (figuras.consultar(i)) -> mostrarSuperficie();
+        }
+    }
+    std::cout << "La superficie minima es: " << superficie_min << std::endl;
+}
+
+void opcion7(Lista &figuras, int longitud){
+    double perimetro_max = 0;
+    for (int i = 1; i <= longitud; i++) {
+        std::cout << std::endl;
+        if (((figuras.consultar(i)) -> mostrarPerimetro()) > perimetro_max) {
+            perimetro_max = (figuras.consultar(i)) -> mostrarPerimetro();
+        }
+    }
+    std::cout << "El perimetro maximo es: " << perimetro_max << std::endl;
+}
+
+void opcion8(Lista &figuras, int longitud){
+    double perimetro_min = 9999999999;
+    for (int i = 1; i <= longitud; i++) {
+        std::cout << std::endl;
+        if (((figuras.consultar(i)) -> mostrarPerimetro()) < perimetro_min) {
+            perimetro_min = (figuras.consultar(i)) -> mostrarPerimetro();
+        }
+    }
+    std::cout << "El perimetro minimo es: " << perimetro_min << std::endl;
+}
+
+void opcion9(){
+    std::cout << "SESION FINALIZADA.";
+}

@@ -13,8 +13,8 @@ public:
     Figura(double p, double s);
     Figura();
     virtual void mostrar();
-    virtual double calcularSuperficie();
-    virtual double calcularPerimetro();
+    virtual double mostrarSuperficie();
+    virtual double mostrarPerimetro();
     
 };
 
@@ -27,8 +27,8 @@ private:
 public:
     Rectangulo(double b, double a);
     void mostrar();
-    double calcularSuperficie();
-    double calcularPerimetro();
+    double mostrarSuperficie();
+    double mostrarPerimetro();
     
     
 };
@@ -41,8 +41,8 @@ private:
 public:
     Cuadrado(double l);
     void mostrar();
-    double calcularSuperficie();
-    double calcularPerimetro();
+    double mostrarSuperficie();
+    double mostrarPerimetro();
     
     
 };
@@ -55,8 +55,8 @@ private:
 public:
     Circulo(double r);
     void mostrar();
-    double calcularSuperficie();
-    double calcularPerimetro();
+    double mostrarSuperficie();
+    double mostrarPerimetro();
     
     
 };
