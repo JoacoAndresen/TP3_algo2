@@ -19,7 +19,6 @@ public:
     //POST: agrega c en la cima
     void insertar(Tipo e , unsigned pos);
     
-    void insertar(Tipo e);
     
     //sacar elementos de la lista
     //PRE: !pila.vacia (pila no vacia)
@@ -44,6 +43,8 @@ public:
     ~Lista();
     
 private:
+    // PRE: pos posicion valida
+    // POST: obtiene el nodo
     Nodo* obtenerNodo(unsigned pos);
     
 };

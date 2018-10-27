@@ -18,13 +18,15 @@ int main() {
         figuras.insertar(crearFigura(archivo), i);
     }
     
+    std::cout << "\n" << std::endl;
+    
     archivo.close();
     
     int respuesta = 0;
     
     while (respuesta != 9) {
         respuesta = menu();
-        if (respuesta == 1) { // Consultar que objeto hay en det pos
+        if (respuesta == 1) { // Consultar que objeto hay en determinada pos
             opcion1(figuras);
             continuar();
         }

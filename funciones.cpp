@@ -4,8 +4,8 @@ int menu(){
     
     int opcion;
     
-    std::cout << "1) Consultar" << std::endl;
-    std::cout << "2) Dar de baja" << std::endl;
+    std::cout << "1) Consultar que objeto hay en determinada posicion" << std::endl;
+    std::cout << "2) Dar de baja objeto" << std::endl;
     std::cout << "3) Agregar objeto nuevo" << std::endl;
     std::cout << "4) Listar todos los objetos" << std::endl;
     std::cout << "5) Indicar la superficie maxima" << std::endl;
@@ -65,13 +65,13 @@ Figura* crearFigura(std::ifstream &archivo){
         return cir;
     }
     std::cout << "Se construye una figura" << std::endl;
-    return new Figura();
+    return new Cuadrado(0);
 }
 
 void continuar(){
     std::string entrada;
     std::cout << std::endl;
-    std::cout << "Presione ENTER para continuar";
+    std::cout << "Ingrese una letra cualquiera y presione ENTER para continuar: ";
     std::cin >> entrada;
     
     // std::cin.ignore();
@@ -98,7 +98,7 @@ void opcion3(Lista &figuras, int longitud){
     std::string tipo;
     double dato1 = 0;
     double dato2 = 0;
-    std::cout << "Ingrese el objeto que desea agregar : ";
+    std::cout << "Ingrese el objeto que desea agregar (A = Cuadrado, B = Rectangulo y C = Circulo) : ";
     std::cin >> tipo;
     if (tipo == "A") {
         std::cout << "Ingrese la longitud de los lados del cuadrado: ";
@@ -133,8 +133,8 @@ void opcion5(Lista &figuras, int longitud){
     double superficie_max = 0;
     for (int i = 1; i <= longitud; i++) {
         std::cout << std::endl;
-        if (((figuras.consultar(i)) -> mostrarSuperficie()) > superficie_max) {
-            superficie_max = (figuras.consultar(i)) -> mostrarSuperficie();
+        if (((figuras.consultar(i)) -> obtenerSuperficie()) > superficie_max) {
+            superficie_max = (figuras.consultar(i)) -> obtenerSuperficie();
         }
     }
     std::cout << "La superficie maxima es: " << superficie_max << std::endl;
@@ -144,8 +144,8 @@ void opcion6(Lista &figuras, int longitud){
     double superficie_min = 9999999999;
     for (int i = 1; i <= longitud; i++) {
         std::cout << std::endl;
-        if (((figuras.consultar(i)) -> mostrarSuperficie()) < superficie_min) {
-            superficie_min = (figuras.consultar(i)) -> mostrarSuperficie();
+        if (((figuras.consultar(i)) -> obtenerSuperficie()) < superficie_min) {
+            superficie_min = (figuras.consultar(i)) -> obtenerSuperficie();
         }
     }
     std::cout << "La superficie minima es: " << superficie_min << std::endl;
@@ -155,8 +155,8 @@ void opcion7(Lista &figuras, int longitud){
     double perimetro_max = 0;
     for (int i = 1; i <= longitud; i++) {
         std::cout << std::endl;
-        if (((figuras.consultar(i)) -> mostrarPerimetro()) > perimetro_max) {
-            perimetro_max = (figuras.consultar(i)) -> mostrarPerimetro();
+        if (((figuras.consultar(i)) -> obtenerPerimetro()) > perimetro_max) {
+            perimetro_max = (figuras.consultar(i)) -> obtenerPerimetro();
         }
     }
     std::cout << "El perimetro maximo es: " << perimetro_max << std::endl;
@@ -166,8 +166,8 @@ void opcion8(Lista &figuras, int longitud){
     double perimetro_min = 9999999999;
     for (int i = 1; i <= longitud; i++) {
         std::cout << std::endl;
-        if (((figuras.consultar(i)) -> mostrarPerimetro()) < perimetro_min) {
-            perimetro_min = (figuras.consultar(i)) -> mostrarPerimetro();
+        if (((figuras.consultar(i)) -> obtenerPerimetro()) < perimetro_min) {
+            perimetro_min = (figuras.consultar(i)) -> obtenerPerimetro();
         }
     }
     std::cout << "El perimetro minimo es: " << perimetro_min << std::endl;

@@ -1,26 +1,5 @@
 #include "figura.h"
 
-Figura::Figura(double p, double s){
-    superficie = s;
-    perimetro = p;
-}
-
-Figura::Figura(){
-    superficie = 0;
-    perimetro = 0;
-}
-
-void Figura::mostrar(){
-}
-
-double Figura::mostrarPerimetro(){
-    return perimetro;
-}
-
-double Figura::mostrarSuperficie(){
-    return superficie;
-}
-
 Rectangulo::Rectangulo(double b, double a){
     base = b;
     altura = a;
@@ -35,11 +14,11 @@ void Rectangulo::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-double Rectangulo::mostrarSuperficie(){
+double Rectangulo::obtenerSuperficie(){
     return superficie;
 }
 
-double Rectangulo::mostrarPerimetro(){
+double Rectangulo::obtenerPerimetro(){
     return perimetro;
 }
 
@@ -56,11 +35,11 @@ void Cuadrado::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-double Cuadrado::mostrarSuperficie(){
+double Cuadrado::obtenerSuperficie(){
     return superficie;
 }
 
-double Cuadrado::mostrarPerimetro(){
+double Cuadrado::obtenerPerimetro(){
     return perimetro;
 }
 
@@ -77,10 +56,10 @@ void Circulo::mostrar(){
     std::cout << "Perimetro = " << perimetro << std::endl;
 }
 
-double Circulo::mostrarSuperficie(){
+double Circulo::obtenerSuperficie(){
     return superficie;
 }
 
-double Circulo::mostrarPerimetro(){
+double Circulo::obtenerPerimetro(){
     return perimetro;
 }

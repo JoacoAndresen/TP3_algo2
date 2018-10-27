@@ -28,11 +28,6 @@ void Lista::insertar(Tipo e , unsigned pos){
     longitud++;
 }
 
-void Lista::insertar(Tipo e) {
-    insertar(e,longitud);
-    this->longitud++;
-}
-
 bool Lista::listaVacia(){
     
     return (longitud==0);
@@ -59,8 +54,6 @@ Tipo Lista::consultar(unsigned pos){
     return aux->obtenerDato();
     
 }
-
-//Metodo privado obtener Nodo
 
 Nodo* Lista::obtenerNodo(unsigned pos){
     Nodo* aux=primero;
